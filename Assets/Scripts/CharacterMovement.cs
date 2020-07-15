@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     protected Joystick joystick;
     protected SpriteRenderer sr;
     public Animator animator;
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +37,14 @@ public class CharacterMovement : MonoBehaviour
         {
             animator.SetBool("walking", true);
 
-            Vector3 movement = new Vector3(targetX, targetY, 0.0f);
-            transform.position += movement * Time.deltaTime * 0.9f;
+            //Vector3 movement = new Vector3(targetX, targetY, 0.0f);
+            //transform.position += movement * Time.deltaTime * 0.9f;
+            rb.velocity = new Vector2(targetX*0.8f, targetY*0.8f);
         }
         else
         {
             animator.SetBool("walking", false);
+            rb.velocity = new Vector2(0.0f, 0.0f);
         }
 
         if (joystick.Horizontal >= 0)
