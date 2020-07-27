@@ -1,12 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - CharacterMovement
     - FixedJoystick
+    - PlayerMovement
+    - TrackPlayer
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -79,6 +81,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13652}
     - Class: 114
       Script: {instanceID: 14266}
+    - Class: 114
+      Script: {instanceID: 19054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -247,7 +251,7 @@ ScriptsOnlyBuild:
       Hash: 2c17772339819f141dc3d1d297134cde
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CharacterMovement
+    className: PlayerMovement
   - hash:
       serializedVersion: 2
       Hash: 9e27f44bbf48228f203a37254d40f8ae
@@ -638,6 +642,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c68538ae44aefd7cee5057f62e6e21a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TrackPlayer
   platform: 13
   scenePathNames:
   - Assets/Scenes/BaseMovement.unity
