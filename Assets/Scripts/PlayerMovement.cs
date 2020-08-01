@@ -40,17 +40,17 @@ public class PlayerMovement : MonoBehaviour
             //Vector3 movement = new Vector3(targetX, targetY, 0.0f);
             //transform.position += movement * Time.deltaTime * 0.9f;
             rb.velocity = new Vector2(targetX*0.8f, targetY*0.8f);
+
+            if (targetX > 0)
+                sr.flipX = false;
+            else
+                sr.flipX = true;
         }
         else
         {
             animator.SetBool("walking", false);
             rb.velocity = new Vector2(0.0f, 0.0f);
         }
-
-        if (joystick.Horizontal >= 0)
-            sr.flipX = false;
-        else
-            sr.flipX = true;
 
     }
 }
