@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DynamicJoystick : Joystick
+public class DynamicJoystick : Joystick 
 {
     public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
 
@@ -11,16 +11,22 @@ public class DynamicJoystick : Joystick
 
     protected override void Start()
     {
+        canvas = GetComponentInParent<Canvas>();
         MoveThreshold = moveThreshold;
         base.Start();
         background.gameObject.SetActive(false);
+
+        sWidth = Screen.width;
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-        background.gameObject.SetActive(true);
-        base.OnPointerDown(eventData);
+        if (eventData.position.x <= sWidth / 2 + canvas.GetComponent<RectTransform>().position.x)
+        {
+            background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
+            background.gameObject.SetActive(true);
+            base.OnPointerDown(eventData);
+        }
     }
 
     public override void OnPointerUp(PointerEventData eventData)
